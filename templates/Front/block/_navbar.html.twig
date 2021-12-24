@@ -1,0 +1,45 @@
+{% trans_default_domain 'front_message' %}
+{% set route = app.request.get('_route') %}
+
+
+<div class="navbar navbar-expand-md navbar-dark bg-warning mb-4 " role="navigation">
+	<a class="navbar-brand" href="{{path('app_index')}}">Bjouets</a>
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+		<span class="navbar-toggler-icon"></span>
+	</button>
+	<div class="collapse navbar-collapse" id="navbarCollapse">
+		<ul class="navbar-nav mr-auto">
+			<li class="nav-item">
+				<a class="nav-link" href="https://github.com/" target="_blank">
+					Github Bjouets</a>
+			</li>
+
+
+			{% if not app.user %}
+				<li class="nav-item me-5">
+					<a class="nav-link" href="{{ path('app_register') }}">S'inscrire</a>
+				</li>
+			{% endif %}
+
+
+			<li class="nav-item  me-5">
+				<a class="nav-link" href="{{ path('app_login') }}">
+					<i class="fas fa-sign-in-alt"></i>Se connecter</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="{{ path('app_logout') }}">
+					<i class="fas fa-sign-out-alt"></i>Déconnexion</a>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div>
+	{% if is_granted('ROLE_ADMIN') %}
+		<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">BackOffice</a>
+		<div class="dropdown-menu">
+			<a class="dropdown-item" href="ajout_categorie">Créer une catégorie</a>
+			<a class="dropdown-item" href="ajout_article">Créer un  article</a>
+		</div>
+	{% endif %}
+</div>

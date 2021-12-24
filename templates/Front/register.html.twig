@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}
+	{{ 'registration.title'|trans() }}
+{% endblock %}
+
+{% block content %}
+	<section class="pt-4 pb-4">
+		<div class="container">
+			<div class="col-lg-6 mx-auto">
+				<div class="card mt-4 mb-4">
+					<div class="card-body">
+						{{ form_start(formu) }}
+						<h1 class="h3 mb-3 font-weight-normal">{{ 'Inscription'|trans() }}</h1>
+						{{ form_row(formu.email) }}
+						{{ form_row(formu.firstname) }}
+						{{ form_row(formu.lastname) }}
+						{{ form_row(formu.plainPassword) }}
+						{{ form_row(formu.agreeTerms) }}
+						<div class="form-group text-center">
+							<button type="submit" class="btn bg-success">Valider</button>
+						</div>
+						{{ form_end(formu) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}

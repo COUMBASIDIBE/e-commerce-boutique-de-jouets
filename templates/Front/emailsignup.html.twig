@@ -1,0 +1,21 @@
+<h1>Bienvenue chez Bjouets
+	{{ email.toName }}!
+</h1>
+
+<p>
+	Vous vous êtes enregistré comme
+	{{  prenom }}
+	{{ nom }}
+	avec l'adresse suivante:
+</p>
+<p>
+	<code>{{ email.to[0].address }}</code>
+
+</p>
+
+<img src="{{ email.image('@images/logo.jpg') }}" alt="Logo">
+<p>
+	<a href="#">Cliquez sur ce lien pour valider votre inscription</a>
+	(ce lien est valide jusqu'au
+	{{ expiration_date|date('F jS') }})
+</p>
